@@ -1,20 +1,31 @@
 #include <iostream>
 using namespace std;
 
-string ReadName() {
-    string Name;
-    cout << "Please enter your name ? \n";
-    cin >> Name;
-    return Name;
+enum enOddOrEven {Odd = 1, Even = 2};
+
+int ReadNumber() {
+    int Number = 0;
+    cout << "Please enter a number ? \n";
+    cin >> Number;
+    return Number;
 }
 
-void DisplayName(string Name){
+enOddOrEven CheckNumber(int Number){
+    if (Number % 2 == 0)
+        return enOddOrEven::Even;
+    else
+        return enOddOrEven::Odd;
+}
 
-    cout << "\n Your Name is: " << Name << endl;
+void DisplayResult(int Number) {
+    if (CheckNumber(Number) == enOddOrEven::Even)
+        cout << "Number " << Number << " is Even \n";
+    else
+        cout << "Number " << Number << " is Odd \n";
 }
 
 int main()
 {
-    DisplayName(ReadName());
+    DisplayResult(ReadNumber());
 }
 

@@ -1,23 +1,31 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-int ReadNumber() {
-    int Number;
-    cout << "Please enter a number ? \n";
-    cin >> Number;
-    return Number;
-}
+enum enPassFail { Pass = 1, Fail = 2 };
 
-float CalculateHalfNumber(int Number){
-    return (float)Number / 2;
+int ReadMark() {
+    int Mark = 0;
+    cout << "Please enter your mark ? \n";
+    cin >> Mark;
+    return Mark;
 }
-void DisplayHalfNumber(int Number){
-    cout << "Half of the " << Number << " is " << CalculateHalfNumber(Number) << endl;
+enPassFail CheckMark(int Mark) {
+    if (Mark >= 50)
+        return enPassFail::Pass;
+    else
+        return enPassFail::Fail;
+}
+void PrintMarkResult(int Mark) {
+    if (CheckMark(Mark) == enPassFail::Pass)
+        cout << "\nPASS\n";
+    else
+        cout << "\nFAIL\n";
 }
 
 int main() {
 
-    DisplayHalfNumber(ReadNumber());
+    PrintMarkResult(ReadMark());
     return 0;
 }
 

@@ -1,8 +1,12 @@
 #include <iostream>
 using namespace std;
 
+void DisplayName(string Name){
+    cout << "\n Your Name is: " << Name << endl;
+}
+
 int main()
 {
-    cout << "Hello World!\n";
+    DisplayName("Imane");
 }
 

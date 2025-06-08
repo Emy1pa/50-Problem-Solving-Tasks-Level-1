@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+
+
 void ReadMarks(int &Mark1, int &Mark2, int &Mark3){
     cout << "Please enter the first Mark ? \n";
     cin >> Mark1;
@@ -18,6 +20,10 @@ float AverageOf3Marks(int Mark1, int Mark2, int Mark3){
 }
 void PrintAverage(float Average){
     cout << "Average is: " << Average << endl;
+    if (Average >= 50)
+        cout << "Pass\n";
+    else
+        cout << "Fail\n";
 }
 
 int main() {

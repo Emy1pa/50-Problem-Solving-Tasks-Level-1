@@ -1,31 +1,27 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-enum enPassFail { Pass = 1, Fail = 2 };
+void ReadNumbers(int &Num1, int &Num2, int &Num3){
+    cout << "Please enter the first Number ? \n";
+    cin >> Num1;
+    cout << "Please enter the second Number ? \n";
+    cin >> Num2;
+    cout << "Please enter the third Number ? \n";
+    cin >> Num3;
+}
 
-int ReadMark() {
-    int Mark = 0;
-    cout << "Please enter your mark ? \n";
-    cin >> Mark;
-    return Mark;
+int CalculateSum(int Num1, int Num2, int Num3){
+    return Num1 + Num2 + Num3;
 }
-enPassFail CheckMark(int Mark) {
-    if (Mark >= 50)
-        return enPassFail::Pass;
-    else
-        return enPassFail::Fail;
-}
-void PrintMarkResult(int Mark) {
-    if (CheckMark(Mark) == enPassFail::Pass)
-        cout << "\nPASS\n";
-    else
-        cout << "\nFAIL\n";
+void PrintSum(int Sum){
+    cout << "Sum is: " << Sum << endl;
 }
 
 int main() {
 
-    PrintMarkResult(ReadMark());
+    int Num1, Num2, Num3;
+    ReadNumbers(Num1, Num2, Num3);
+    PrintSum(CalculateSum(Num1, Num2, Num3));
     return 0;
 }
 

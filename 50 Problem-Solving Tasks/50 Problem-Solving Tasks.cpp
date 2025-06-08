@@ -1,38 +1,34 @@
 #include <iostream>
 using namespace std;
 
-struct stInfos {
-    int Age;
-    bool HasDriverLicense;
-    bool HasRecommandation;
+struct stInfo {
+    string FirstName;
+    string LastName;
 };
 
-stInfos ReadInfos() {
-    stInfos Info;
-    cout << "Please enter your age ? \n";
-    cin >> Info.Age;
-    cout << "Please enter if you have a driver license ? \n";
-    cin >> Info.HasDriverLicense;
-    cout << "Please enter if you have a recommandation ? \n";
-    cin >> Info.HasRecommandation;
+stInfo ReadInfos() {
+    stInfo Info;
+    cout << "Please enter your FirstName ? \n";
+    cin >> Info.FirstName;
+    cout << "Please enter your LastName ? \n";
+    cin >> Info.LastName;
     return Info;
 }
-bool CheckHiredOrRejected(stInfos Info){
-    if (Info.HasRecommandation)
-        return true;
+string ReturnFullName(stInfo Info, bool Reversed){
+    if (Reversed)
+        return Info.LastName + " " + Info.FirstName;
     else
-        return (Info.Age > 21 && Info.HasDriverLicense);
+        return Info.FirstName + " " + Info.LastName;
 }
-void PrintResult(stInfos Info){
-    if (CheckHiredOrRejected(Info))
-        cout << "\n Hired \n";
-    else
-        cout << "\n Rejected \n";
+void PrintResult(string FullName){
+    cout << "\nYour FullName is " << FullName << endl;
 }
+
+
 
 int main() {
 
-    PrintResult(ReadInfos());
+    PrintResult(ReturnFullName(ReadInfos(), true));
     return 0;
 }
 

@@ -4,6 +4,7 @@ using namespace std;
 struct stInfos {
     int Age;
     bool HasDriverLicense;
+    bool HasRecommandation;
 };
 
 stInfos ReadInfos() {
@@ -12,10 +13,15 @@ stInfos ReadInfos() {
     cin >> Info.Age;
     cout << "Please enter if you have a driver license ? \n";
     cin >> Info.HasDriverLicense;
+    cout << "Please enter if you have a recommandation ? \n";
+    cin >> Info.HasRecommandation;
     return Info;
 }
 bool CheckHiredOrRejected(stInfos Info){
-    return (Info.Age > 21 && Info.HasDriverLicense);
+    if (Info.HasRecommandation)
+        return true;
+    else
+        return (Info.Age > 21 && Info.HasDriverLicense);
 }
 void PrintResult(stInfos Info){
     if (CheckHiredOrRejected(Info))

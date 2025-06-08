@@ -1,31 +1,32 @@
 #include <iostream>
 using namespace std;
 
-enum enOddOrEven {Odd = 1, Even = 2};
+struct stInfos {
+    int Age;
+    bool HasDriverLicense;
+};
 
-int ReadNumber() {
-    int Number = 0;
-    cout << "Please enter a number ? \n";
-    cin >> Number;
-    return Number;
+stInfos ReadInfos() {
+    stInfos Info;
+    cout << "Please enter your age ? \n";
+    cin >> Info.Age;
+    cout << "Please enter if you have a driver license ? \n";
+    cin >> Info.HasDriverLicense;
+    return Info;
 }
-
-enOddOrEven CheckNumber(int Number){
-    if (Number % 2 == 0)
-        return enOddOrEven::Even;
+bool CheckHiredOrRejected(stInfos Info){
+    return (Info.Age > 21 && Info.HasDriverLicense);
+}
+void PrintResult(stInfos Info){
+    if (CheckHiredOrRejected(Info))
+        cout << "\n Hired \n";
     else
-        return enOddOrEven::Odd;
+        cout << "\n Rejected \n";
 }
 
-void DisplayResult(int Number) {
-    if (CheckNumber(Number) == enOddOrEven::Even)
-        cout << "Number " << Number << " is Even \n";
-    else
-        cout << "Number " << Number << " is Odd \n";
-}
+int main() {
 
-int main()
-{
-    DisplayResult(ReadNumber());
+    PrintResult(ReadInfos());
+    return 0;
 }
 

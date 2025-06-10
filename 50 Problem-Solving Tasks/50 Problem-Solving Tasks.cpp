@@ -1,26 +1,27 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-void ReadNumbers(float &Num1, float &Num2){
-    cout << "Please enter Number 1 ? \n";
-    cin >> Num1;
-    cout << "Please enter Number 2 ? \n";
-    cin >> Num2;
+void ReadNumbers(float &A, float &D){
+    cout << "Please enter A value ? \n";
+    cin >> A;
+    cout << "Please enter D value ? \n";
+    cin >> D;
 }
 
-float CalculateRectangeArea(float Num1, float Num2){
-    return Num1 * Num2;
+float CalculateRectangeAreaByDiagonalSide(float A, float D) {
+    float Area = A * sqrt(pow(D, 2) - pow(A, 2));
+    return Area;
 }
-
-void PrintRectangleArea(float Area){
+void PrintRectangeAreaByDiagonalSide(float Area){
     cout << "Area is: " << Area << endl;
 }
 
 int main() {
    
-    float Num1, Num2;
-    ReadNumbers(Num1, Num2);
-    PrintRectangleArea(CalculateRectangeArea(Num1, Num2));
+    float A, D;
+    ReadNumbers(A, D);
+    PrintRectangeAreaByDiagonalSide(CalculateRectangeAreaByDiagonalSide(A, D));
     return 0;
 }
 

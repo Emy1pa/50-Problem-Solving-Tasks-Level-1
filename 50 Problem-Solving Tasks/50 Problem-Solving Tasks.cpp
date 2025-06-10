@@ -2,27 +2,27 @@
 #include <cmath>
 using namespace std;
 
-float ReadSquareSide(){
-    float A;
-    cout << "Please enter A value ? \n";
-    cin >> A;
-    return A;
+float ReadCircumference(){
+    float L;
+    cout << "Please enter L Circumference value ? \n";
+    cin >> L;
+    return L;
     
 }
 
-float CalculateCircleAreaInscribedInSquare(float A) {
+float CalculateCircleAreaByCircumference(float L) {
     const float PI = 3.141592653589793238;
-    float Area = (PI * pow(A, 2))/4;
+    float Area = pow(L, 2) / (4 * PI);
     return Area;
 }
-void PrintCircleInscribedInSquare(float Area){
-    cout << "Circle Area Inscribed in a Square is: " << Area << endl;
+void PrintResult(float Area){
+    cout << "Circle Area By Circumference is: " << Area << endl;
 }
 
 int main() {
    
     float D;
-    PrintCircleInscribedInSquare(CalculateCircleAreaInscribedInSquare(ReadSquareSide()));
+    PrintResult(CalculateCircleAreaByCircumference(ReadCircumference()));
     return 0;
 }
 

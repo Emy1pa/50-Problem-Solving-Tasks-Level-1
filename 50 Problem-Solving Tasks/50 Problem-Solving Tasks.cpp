@@ -2,26 +2,26 @@
 #include <cmath>
 using namespace std;
 
-void ReadNumbers(float &A, float &H){
-    cout << "Please enter A value ? \n";
-    cin >> A;
-    cout << "Please enter H value ? \n";
-    cin >> H;
+void ReadRadious(float &R){
+    cout << "Please enter R value ? \n";
+    cin >> R;
+    
 }
 
-float CalculateTriangleArea(float A, float H) {
-    float Area = A / 2 * H;
+float CalculateCircleArea(float R) {
+    const float PI = 3.14;
+    float Area = PI * pow(R, 2);
     return Area;
 }
-void PrintTriangleArea(float Area){
-    cout << "Triangle Area is: " << Area << endl;
+void PrintCircle(float Area){
+    cout << "Circle Area is: " << Area << endl;
 }
 
 int main() {
    
-    float A, H;
-    ReadNumbers(A, H);
-    PrintTriangleArea(CalculateTriangleArea(A, H));
+    float R;
+    ReadRadious(R);
+    PrintCircle(CalculateCircleArea(R));
     return 0;
 }
 

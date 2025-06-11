@@ -1,32 +1,44 @@
 #include <iostream>
 using namespace std;
 
-int ReadAge() {
-    int Age;
-    cout << "Please enter your age ? \n";
-    cin >> Age;
-    return Age;
+int ReadNumber() {
+    int Number;
+    cout << "Please enter a number ? \n";
+    cin >> Number;
+    return Number;
 }
-bool ValidateNumberInRange(int Age, int From, int To){
-    return Age >= From && Age <= To;
+void PrintNumbersFrom1toNUsingForLoop(int Number) {
+    cout << "Print Numbers using For Loop \n";
+    for (int i = 1; i <= Number; i++)
+    {
+        cout << i << endl;
+    }
 }
-int ReadUntilAgeIsBetween(int From, int To){
-    int Age;
+void PrintNumbersFrom1toNUsingWhileLoop(int Number) {
+    cout << "Print Numbers using While Loop \n";
+    int i = 1;
+    while (i <= Number) {
+        cout << i << endl;
+        i++;
+    }
+}
+void PrintNumbersFrom1toNUsingDoWhileLoop(int Number) {
+    cout << "Print Numbers using Do While Loop \n";
+    int i = 1;
     do
     {
-        Age = ReadAge();
-    } while (!ValidateNumberInRange(Age, From, To));
-    return Age;
+        cout << i << endl;
+        i++;
+    } while (i<=Number);
 }
-void PrintResult(int Age){
-    //if (ReadUntilAgeIsBetween(18, 45))
-        cout << Age << endl;
-    
-}
+
 
 int main() {
    
-    PrintResult(ReadUntilAgeIsBetween(18, 45));
+    int Number = ReadNumber();
+    PrintNumbersFrom1toNUsingForLoop(Number);
+    PrintNumbersFrom1toNUsingWhileLoop(Number);
+    PrintNumbersFrom1toNUsingDoWhileLoop(Number);
     return 0;
 }
 

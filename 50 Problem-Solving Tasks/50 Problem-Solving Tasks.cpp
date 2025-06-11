@@ -1,35 +1,38 @@
 #include <iostream>
 using namespace std;
 
-int ReadTotalSales(string Message){
-    int TotalSales;
-    cout << Message << endl;
-    cin >> TotalSales;
-    return TotalSales;
-}
-float GetPercentage(int TotalSales){
-    if (TotalSales >= 1000000)
-        return 0.01;
-    else if (TotalSales >= 500000)
-        return 0.02;
-    else if (TotalSales >= 100000)
-        return 0.03;
-    else if (TotalSales >= 50000)
-        return 0.05;
-    else
-        return 0;
-}
-float CalculateTotalCommission(int TotalSales, float Percentage) {
-    return TotalSales * Percentage;
+struct stPiggyBankCalculator {
+    int Pennies, Nickles, Dimes, Quarters, Dollars;
+};
+
+stPiggyBankCalculator ReadPiggyBankInfo() {
+    stPiggyBankCalculator PiggyBankInfo;
+    cout << "Please enter the amount of Pennies ? \n";
+    cin >> PiggyBankInfo.Pennies;
+    cout << "Please enter the amount of Nickles ? \n";
+    cin >> PiggyBankInfo.Nickles;
+    cout << "Please enter the amount of Dimes ? \n";
+    cin >> PiggyBankInfo.Dimes;
+    cout << "Please enter the amount of Quarters ? \n";
+    cin >> PiggyBankInfo.Quarters;
+    cout << "Please enter the amount of Dollars ? \n";
+    cin >> PiggyBankInfo.Dollars;
+    return PiggyBankInfo;
 }
 
+int CalculateTotalPennies(stPiggyBankCalculator PiggyBankInfo){
+    int TotalPennies =  PiggyBankInfo.Pennies + PiggyBankInfo.Nickles * 5 +
+        PiggyBankInfo.Dimes * 10 + PiggyBankInfo.Quarters * 25 + PiggyBankInfo.Dollars * 100;
+    return TotalPennies;
+}
 
 
 int main() {
    
-    int TotalSales = ReadTotalSales("Pleas enter total sales ?");
-    cout << "Total Sales = " << TotalSales << endl;
-    cout << "Total Commission = " << CalculateTotalCommission(TotalSales, GetPercentage(TotalSales));
+    stPiggyBankCalculator PiggyBankInfo;
+    float TotalPennies = CalculateTotalPennies(ReadPiggyBankInfo());
+    cout << "Total Pennies = " << TotalPennies << endl;
+    cout << "Amount of Dollars = " << TotalPennies / 100 << endl;
     return 0;
 }
 

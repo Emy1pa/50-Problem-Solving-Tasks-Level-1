@@ -15,11 +15,11 @@ enOddEven CheckEvenOrOdd(int Number) {
     else
         return enOddEven::Even;
 }
-int PrintSumOfOddNumbers(int Number){
+int PrintSumOfEvenNumbers(int Number){
     int sum = 0;
     for (int counter = 1; counter <= Number; counter++)
     {
-        if (CheckEvenOrOdd(counter) == enOddEven::Odd)
+        if (CheckEvenOrOdd(counter) == enOddEven::Even)
             sum += counter;
     }
     return sum;
@@ -31,7 +31,7 @@ int PrintSumOfOddNumbers(int Number){
 int main() {
    
     int Number = ReadNumber();
-    cout << "Sum = " << PrintSumOfOddNumbers(Number) << endl;
+    cout << "Sum = " << PrintSumOfEvenNumbers(Number) << endl;
     return 0;
 }
 

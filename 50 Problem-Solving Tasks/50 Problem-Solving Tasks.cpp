@@ -9,29 +9,21 @@ int ReadNumber() {
     cin >> Number;
     return Number;
 }
-enOddEven CheckEvenOrOdd(int Number) {
-    if (Number % 2 != 0)
-        return enOddEven::Odd;
-    else
-        return enOddEven::Even;
-}
-int PrintSumOfEvenNumbers(int Number){
-    int sum = 0;
-    for (int counter = 1; counter <= Number; counter++)
+
+int PrintFactorialNumber(int Number){
+    int Factorial = 1;
+    for (int counter = Number; counter >= 1; counter--)
     {
-        if (CheckEvenOrOdd(counter) == enOddEven::Even)
-            sum += counter;
+        Factorial *= counter;
     }
-    return sum;
+    return Factorial;
 }
-
-
 
 
 int main() {
    
     int Number = ReadNumber();
-    cout << "Sum = " << PrintSumOfEvenNumbers(Number) << endl;
+    cout << "Factorial is " << PrintFactorialNumber(Number) << endl;
     return 0;
 }
 

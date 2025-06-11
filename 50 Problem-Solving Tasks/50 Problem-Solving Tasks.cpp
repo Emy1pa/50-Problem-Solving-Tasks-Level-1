@@ -1,36 +1,35 @@
 #include <iostream>
 using namespace std;
 
-
-int ReadGrade(string Message) {
-    
-    int Grade;
+int ReadTotalSales(string Message){
+    int TotalSales;
     cout << Message << endl;
-    cin >> Grade;
-    return Grade;
+    cin >> TotalSales;
+    return TotalSales;
 }
-char PrintGrade(int Grade){
-    {
-        if (Grade >= 90)
-            return 'A';
-        else if (Grade >= 80)
-            return 'B';
-        else if (Grade >= 70)
-            return 'C';
-        else if (Grade >= 60)
-            return 'D';
-        else if (Grade >= 50)
-            return 'E';
-        else
-            return 'F';
-    }
+float GetPercentage(int TotalSales){
+    if (TotalSales >= 1000000)
+        return 0.01;
+    else if (TotalSales >= 500000)
+        return 0.02;
+    else if (TotalSales >= 100000)
+        return 0.03;
+    else if (TotalSales >= 50000)
+        return 0.05;
+    else
+        return 0;
+}
+float CalculateTotalCommission(int TotalSales, float Percentage) {
+    return TotalSales * Percentage;
 }
 
 
 
 int main() {
    
-    cout << PrintGrade(ReadGrade("Please enter a number ? \n"));
+    int TotalSales = ReadTotalSales("Pleas enter total sales ?");
+    cout << "Total Sales = " << TotalSales << endl;
+    cout << "Total Commission = " << CalculateTotalCommission(TotalSales, GetPercentage(TotalSales));
     return 0;
 }
 

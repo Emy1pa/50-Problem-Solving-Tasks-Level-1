@@ -13,17 +13,24 @@ int ReadPositiveNumber(string Message) {
 }
 
 
-void PrintPowerOf2_3_4(int Number){
-    int a = Number * Number;
-    int b = Number * Number * Number;
-    int c = Number * Number * Number * Number;
-    cout << a << " " << b << " " << c << endl;
+int PrintPowerOfM(int Number, int M){
+    int p = 1;
+    if (M == 1) {
+        return p;
+    }
+    for (int i = 1; i <= M; i++)
+    {
+        p *= Number;
+    }
+    return p;
+
 }
 
 int main() {
    
     int Number = ReadPositiveNumber("Please enter a positive number ?");
-    PrintPowerOf2_3_4(Number);
+    int M = ReadPositiveNumber("Please enter a power ?");
+    cout << PrintPowerOfM(Number, M) << endl;
     return 0;
 }
 

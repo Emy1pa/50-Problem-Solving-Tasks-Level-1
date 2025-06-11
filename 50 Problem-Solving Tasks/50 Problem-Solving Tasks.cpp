@@ -10,16 +10,23 @@ int ReadAge() {
 bool ValidateNumberInRange(int Age, int From, int To){
     return Age >= From && Age <= To;
 }
+int ReadUntilAgeIsBetween(int From, int To){
+    int Age;
+    do
+    {
+        Age = ReadAge();
+    } while (!ValidateNumberInRange(Age, From, To));
+    return Age;
+}
 void PrintResult(int Age){
-    if (ValidateNumberInRange(Age, 18, 45))
-        cout << "Valid Age \n";
-    else
-        cout << "Invalid Age \n";
+    //if (ReadUntilAgeIsBetween(18, 45))
+        cout << Age << endl;
+    
 }
 
 int main() {
    
-    PrintResult(ReadAge());
+    PrintResult(ReadUntilAgeIsBetween(18, 45));
     return 0;
 }
 

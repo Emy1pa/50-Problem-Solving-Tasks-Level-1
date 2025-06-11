@@ -1,29 +1,29 @@
 #include <iostream>
 using namespace std;
 
-enum enOddEven {Odd = 1, Even = 2};
 
-int ReadNumber() {
+int ReadPositiveNumber(string Message) {
     int Number;
-    cout << "Please enter a number ? \n";
-    cin >> Number;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number < 0);
     return Number;
 }
 
-int PrintFactorialNumber(int Number){
-    int Factorial = 1;
-    for (int counter = Number; counter >= 1; counter--)
-    {
-        Factorial *= counter;
-    }
-    return Factorial;
-}
 
+void PrintPowerOf2_3_4(int Number){
+    int a = Number * Number;
+    int b = Number * Number * Number;
+    int c = Number * Number * Number * Number;
+    cout << a << " " << b << " " << c << endl;
+}
 
 int main() {
    
-    int Number = ReadNumber();
-    cout << "Factorial is " << PrintFactorialNumber(Number) << endl;
+    int Number = ReadPositiveNumber("Please enter a positive number ?");
+    PrintPowerOf2_3_4(Number);
     return 0;
 }
 

@@ -2,35 +2,35 @@
 using namespace std;
 
 
-int ReadPositiveNumber(string Message) {
-    int Number;
-    do
+int ReadGrade(string Message) {
+    
+    int Grade;
+    cout << Message << endl;
+    cin >> Grade;
+    return Grade;
+}
+char PrintGrade(int Grade){
     {
-        cout << Message << endl;
-        cin >> Number;
-    } while (Number < 0);
-    return Number;
+        if (Grade >= 90)
+            return 'A';
+        else if (Grade >= 80)
+            return 'B';
+        else if (Grade >= 70)
+            return 'C';
+        else if (Grade >= 60)
+            return 'D';
+        else if (Grade >= 50)
+            return 'E';
+        else
+            return 'F';
+    }
 }
 
 
-int PrintPowerOfM(int Number, int M){
-    int p = 1;
-    if (M == 1) {
-        return p;
-    }
-    for (int i = 1; i <= M; i++)
-    {
-        p *= Number;
-    }
-    return p;
-
-}
 
 int main() {
    
-    int Number = ReadPositiveNumber("Please enter a positive number ?");
-    int M = ReadPositiveNumber("Please enter a power ?");
-    cout << PrintPowerOfM(Number, M) << endl;
+    cout << PrintGrade(ReadGrade("Please enter a number ? \n"));
     return 0;
 }
 

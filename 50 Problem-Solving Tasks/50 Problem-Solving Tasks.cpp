@@ -7,38 +7,38 @@ int ReadNumber() {
     cin >> Number;
     return Number;
 }
-void PrintNumbersFrom1toNUsingForLoop(int Number) {
+void PrintNumbersFromNTo1UsingForLoop(int Number) {
     cout << "Print Numbers using For Loop \n";
-    for (int i = 1; i <= Number; i++)
+    for (int i = Number; i >= 1; i--)
     {
         cout << i << endl;
     }
 }
-void PrintNumbersFrom1toNUsingWhileLoop(int Number) {
+void PrintNumbersFromNto1UsingWhileLoop(int Number) {
     cout << "Print Numbers using While Loop \n";
-    int i = 1;
-    while (i <= Number) {
+    int i = Number;
+    while (i >= 1) {
         cout << i << endl;
-        i++;
+        i--;
     }
 }
-void PrintNumbersFrom1toNUsingDoWhileLoop(int Number) {
+void PrintNumbersFromNto1UsingDoWhileLoop(int Number) {
     cout << "Print Numbers using Do While Loop \n";
-    int i = 1;
+    int i = Number;
     do
     {
         cout << i << endl;
-        i++;
-    } while (i<=Number);
+        i--;
+    } while (i>=1);
 }
 
 
 int main() {
    
     int Number = ReadNumber();
-    PrintNumbersFrom1toNUsingForLoop(Number);
-    PrintNumbersFrom1toNUsingWhileLoop(Number);
-    PrintNumbersFrom1toNUsingDoWhileLoop(Number);
+    PrintNumbersFromNTo1UsingForLoop(Number);
+    PrintNumbersFromNto1UsingWhileLoop(Number);
+    PrintNumbersFromNto1UsingDoWhileLoop(Number);
     return 0;
 }
 

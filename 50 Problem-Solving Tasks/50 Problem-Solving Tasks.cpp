@@ -14,7 +14,7 @@ int ReadPositiveNumber(string Message){
 }
 
 int CalculateRemainder(int TotalBill, int CashPaid){
-	return TotalBill - CashPaid;
+	return CashPaid - TotalBill;
 }
 
 
@@ -25,6 +25,9 @@ int main() {
    
 	int TotalBill = ReadPositiveNumber("Please enter the total bill ?");
 	int CashPaid = ReadPositiveNumber("please enter the cash paid ?");
+	cout << "Total Bill " << TotalBill << endl;
+	cout << "Total Cash Paid " << CashPaid << endl;
+	cout << "************************\n";
 	cout << "Remainder = " << CalculateRemainder(TotalBill, CashPaid) << endl;
     return 0;
 }

@@ -12,12 +12,14 @@ int ReadPositiveNumber(string Message){
 	} while (Number <= 0);
 	return Number;
 }
-
-float CalculateTotalBill(float BillValue){
-	float TotalBill = BillValue * 1.1;
-	TotalBill *= 1.16;
-	return TotalBill;
+void CalculateNumberOfWeeks_Days(float NumberOfHours){
+	float NumberOfDays = NumberOfHours / 24;
+	float NumberOfWeeks = NumberOfDays / 7;
+	cout << NumberOfDays << " Days \n";
+	cout << NumberOfWeeks << " Weeks \n";
 }
+
+
 
 
 
@@ -25,10 +27,8 @@ float CalculateTotalBill(float BillValue){
 
 int main() {
    
-	float BillValue = ReadPositiveNumber("Please enter the bill value ?");
-	cout << "Bill Value = " << BillValue << endl;
-	cout << "************************\n";
-	cout << "Total Bill = " << CalculateTotalBill(BillValue) << endl;
+	float NumberOfHours = ReadPositiveNumber("Please enter the number of hours ?");
+	CalculateNumberOfWeeks_Days(NumberOfHours);
     return 0;
 }
 

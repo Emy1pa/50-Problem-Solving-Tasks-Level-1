@@ -3,8 +3,12 @@
 #include <cmath>
 using namespace std;
 
-int ReadPositiveNumber(string Message){
-    int Number = 0;
+struct stTaskDuration {
+	int Days, Hours, Minutes, Seconds;
+};
+
+float ReadPositiveNumber(string Message){
+    float Number = 0;
 	do
 	{
 		cout << Message << endl;
@@ -12,23 +16,24 @@ int ReadPositiveNumber(string Message){
 	} while (Number <= 0);
 	return Number;
 }
-void CalculateNumberOfWeeks_Days(float NumberOfHours){
-	float NumberOfDays = NumberOfHours / 24;
-	float NumberOfWeeks = NumberOfDays / 7;
-	cout << NumberOfDays << " Days \n";
-	cout << NumberOfWeeks << " Weeks \n";
+
+stTaskDuration ReadTaskDuration() {
+	stTaskDuration TaskDuration;
+	TaskDuration.Days = ReadPositiveNumber("Please enter the number of days ?");
+	TaskDuration.Hours = ReadPositiveNumber("Please enter the number of Hours ?");
+	TaskDuration.Minutes = ReadPositiveNumber("Please enter the number of Minutes ?");
+	TaskDuration.Seconds = ReadPositiveNumber("Please enter the number of Seconds ?");
+	return TaskDuration;
 }
-
-
-
-
-
+int CalculateTaskDurationInSeconds(stTaskDuration TaskDuration){
+	return TaskDuration.Days * 24 * 60 * 60 + TaskDuration.Hours * 60 * 60 +
+		TaskDuration.Minutes * 60 + TaskDuration.Seconds;
+}
 
 
 int main() {
    
-	float NumberOfHours = ReadPositiveNumber("Please enter the number of hours ?");
-	CalculateNumberOfWeeks_Days(NumberOfHours);
+	cout << endl << CalculateTaskDurationInSeconds(ReadTaskDuration()) << " Seconds " << endl;
     return 0;
 }
 

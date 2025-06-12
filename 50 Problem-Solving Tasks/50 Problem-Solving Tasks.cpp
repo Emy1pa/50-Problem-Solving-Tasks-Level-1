@@ -3,12 +3,9 @@
 #include <cmath>
 using namespace std;
 
-struct stTaskDuration {
-	int Days, Hours, Minutes, Seconds;
-};
 
-float ReadPositiveNumber(string Message){
-    float Number = 0;
+int ReadPositiveNumber(string Message){
+    int Number = 0;
 	do
 	{
 		cout << Message << endl;
@@ -17,23 +14,29 @@ float ReadPositiveNumber(string Message){
 	return Number;
 }
 
-stTaskDuration ReadTaskDuration() {
-	stTaskDuration TaskDuration;
-	TaskDuration.Days = ReadPositiveNumber("Please enter the number of days ?");
-	TaskDuration.Hours = ReadPositiveNumber("Please enter the number of Hours ?");
-	TaskDuration.Minutes = ReadPositiveNumber("Please enter the number of Minutes ?");
-	TaskDuration.Seconds = ReadPositiveNumber("Please enter the number of Seconds ?");
-	return TaskDuration;
+void CalculateNumberOfDays_Minutes_Seconds(int NumberOfSeconds){
+	int SecondsPerDay = 24 * 60 * 60;
+	int HoursPerDay = 60 * 60;
+	int MinutesPerDay =  60;
+
+	int NumberOfDays = NumberOfSeconds / SecondsPerDay;
+	int Remainder = floor(NumberOfSeconds % SecondsPerDay);
+	int NumberOfHours = Remainder / HoursPerDay;
+	Remainder = floor(Remainder % HoursPerDay);
+	int NumberOfMinutes = Remainder / MinutesPerDay;
+	Remainder = floor(Remainder % MinutesPerDay);
+	int SecondsRemainder = Remainder;
+
+	cout << NumberOfDays << ":" << NumberOfHours << ":" << NumberOfMinutes << ":" << SecondsRemainder << endl;
+
 }
-int CalculateTaskDurationInSeconds(stTaskDuration TaskDuration){
-	return TaskDuration.Days * 24 * 60 * 60 + TaskDuration.Hours * 60 * 60 +
-		TaskDuration.Minutes * 60 + TaskDuration.Seconds;
-}
+
 
 
 int main() {
    
-	cout << endl << CalculateTaskDurationInSeconds(ReadTaskDuration()) << " Seconds " << endl;
+	int NumberOfSeconds = ReadPositiveNumber("Please enter the number of seconds ? \n");
+	CalculateNumberOfDays_Minutes_Seconds(NumberOfSeconds);
     return 0;
 }
 

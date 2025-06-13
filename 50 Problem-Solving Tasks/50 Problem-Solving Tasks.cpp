@@ -3,17 +3,25 @@
 #include <cmath>
 using namespace std;
 
-void PrintLettersFromAtoZ() {
-	for (int i = 65; i <= 90; i++)
+float ReadPositiveNumber(string Message){
+	float Number = 0;
+	do
 	{
-		cout << char(i) << endl;
-	}
+		cout << Message << endl;
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
 }
-
+float TotalOfMonths(float LoanAmount, float MonthlyPayment){
+	return LoanAmount / MonthlyPayment;
+}
 
 int main() {
     
-	PrintLettersFromAtoZ();
+	float LoanAmount = ReadPositiveNumber("Please enter the loan amount ?");
+	float MonthlyPayment = ReadPositiveNumber("Please enter the monthly payment ?");
+
+	cout << "The Total of months is" << TotalOfMonths(LoanAmount, MonthlyPayment) << " Months" << endl;
 	return 0;
 }
 

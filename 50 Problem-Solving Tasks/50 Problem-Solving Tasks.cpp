@@ -3,8 +3,8 @@
 #include <cmath>
 using namespace std;
 
-float ReadPositiveNumber(string Message){
-	float Number = 0;
+int ReadPositiveNumber(string Message){
+	int Number = 0;
 	do
 	{
 		cout << Message << endl;
@@ -12,16 +12,25 @@ float ReadPositiveNumber(string Message){
 	} while (Number <= 0);
 	return Number;
 }
-float MonthlyInstallmentAmount(float LoanAmount, float HowManyMonths){
-	return LoanAmount / HowManyMonths;
+void PrintResult(){
+	int Balance = 7500;
+	int AtmPin = 0;
+	do
+	{
+		AtmPin = ReadPositiveNumber("Please enter the ATM_PIN code ?");
+		if (AtmPin == 1234) {
+			cout << "Your balance is " << Balance << endl;
+		}
+		else {
+			cout << "Wrong PIN \n";
+		}
+
+	} while (AtmPin != 1234);
 }
 
-int main() {
-    
-	float LoanAmount = ReadPositiveNumber("Please enter the loan amount ?");
-	float HowManyMonths = ReadPositiveNumber("Please enter how many months you need ?");
 
-	cout << "The monthly installment amount is " << MonthlyInstallmentAmount(LoanAmount, HowManyMonths) << endl;
+int main() {
+	PrintResult();
 	return 0;
 }
 

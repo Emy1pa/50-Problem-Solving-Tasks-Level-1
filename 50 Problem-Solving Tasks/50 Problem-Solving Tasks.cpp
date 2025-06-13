@@ -3,47 +3,57 @@
 #include <cmath>
 using namespace std;
 
-enum enDayOfTheWeek {Monday = 1, Tuesday = 2, Wednesday = 3, Thursday = 4, Friday = 5, Saturday = 6, Sunday = 7};
+enum enMonthOfTheYear {Jan = 1, Feb = 2, Mar = 3, Apr = 4, May = 5, Jun = 6, Jul = 7, Aug = 8, Sep = 9, Oct = 10, Nov = 11, Dec = 12};
 
-int ReadPositiveNumber(string Message){
+int ReadPositiveNumber(string Message, int From, int To){
     int Number = 0;
 	do
 	{
 		cout << Message << endl;
 		cin >> Number;
-	} while (Number <= 0);
+	} while (Number < From || Number > To);
 	return Number;
 }
 
-enDayOfTheWeek ReadDayOfTheWeek() {
-	int Day = ReadPositiveNumber("Please choose a specefic day ? (1 - 7)");
-	return (enDayOfTheWeek)Day;
+enMonthOfTheYear ReadMonthOfTheYear() {
+	int Month = ReadPositiveNumber("Please choose a specefic month ? (1 - 12)", 1, 12);
+	return (enMonthOfTheYear)Month;
 }
-string DisplayDayOfTheWeek(enDayOfTheWeek DayOfTheWeek){
-	switch (DayOfTheWeek)
+string DisplayMonthOfTheYear(enMonthOfTheYear Month){
+	switch (Month)
 	{
-	case enDayOfTheWeek::Monday:
-		return "It is Monday";
-	case enDayOfTheWeek::Tuesday:
-		return "It is Tuesday";
-	case enDayOfTheWeek::Wednesday:
-		return "It is Wednesday";
-	case enDayOfTheWeek::Thursday:
-		return "It is Thursday";
-	case enDayOfTheWeek::Friday:
-		return "It is Friday";
-	case enDayOfTheWeek::Saturday:
-		return "It is Saturday";
-	case enDayOfTheWeek::Sunday:
-		return "It is Sunday";
+	case enMonthOfTheYear::Jan:
+		return "It is January";
+	case enMonthOfTheYear::Feb:
+		return "It is February";
+	case enMonthOfTheYear::Mar:
+		return "It is March";
+	case enMonthOfTheYear::Apr:
+		return "It is April";
+	case enMonthOfTheYear::May:
+		return "It is May";
+	case enMonthOfTheYear::Jun:
+		return "It is June";
+	case enMonthOfTheYear::Jul:
+		return "It is July";
+	case enMonthOfTheYear::Aug:
+		return "It is August";
+	case enMonthOfTheYear::Sep:
+		return "It is September";
+	case enMonthOfTheYear::Oct:
+		return "It is October";
+	case enMonthOfTheYear::Nov:
+		return "It is November";
+	case enMonthOfTheYear::Dec:
+		return "It is December";
 	default:
-		return "Not a Week Day";
+		return "Not a Month Year";
 	}
 }
 
 int main() {
     
-	cout << DisplayDayOfTheWeek(ReadDayOfTheWeek()) << endl;
+	cout << DisplayMonthOfTheYear(ReadMonthOfTheYear()) << endl;
 	return 0;
 }
 

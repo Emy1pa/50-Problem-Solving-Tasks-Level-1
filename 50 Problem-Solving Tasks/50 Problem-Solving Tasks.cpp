@@ -3,34 +3,41 @@
 #include <cmath>
 using namespace std;
 
-int ReadPositiveNumber(string Message){
-	int Number = 0;
-	do
-	{
-		cout << Message << endl;
-		cin >> Number;
-	} while (Number <= 0);
-	return Number;
+string ReadPinCode() {
+	string PinCode;
+	cout << "Please enter PIN Code \n";
+	cin >> PinCode;
+	return PinCode;
+
 }
-void PrintResult(){
-	int Balance = 7500;
-	int AtmPin = 0;
+bool Login() {
+	string PinCode;
+	int Counter = 1;
 	do
 	{
-		AtmPin = ReadPositiveNumber("Please enter the ATM_PIN code ?");
-		if (AtmPin == 1234) {
-			cout << "Your balance is " << Balance << endl;
+		PinCode = ReadPinCode();
+		if (PinCode == "1234") {
+			return true;
 		}
 		else {
-			cout << "Wrong PIN \n";
-		}
+			cout << "\nWrong Pin \n";
+			system("color 4F");
+			Counter++;
 
-	} while (AtmPin != 1234);
+		}
+	} while (PinCode != "1234" && Counter <= 3);
+	return false;
 }
 
-
 int main() {
-	PrintResult();
+
+	if (Login()) {
+		system("color 2F");
+		cout << "Your account balance is " << 7500 << endl;
+	}
+	else {
+		cout << "Your card is lOCKED " << endl;
+	}
 	return 0;
 }
 
